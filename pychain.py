@@ -75,7 +75,7 @@ class Block:
     record: Record
 
     creator_id: int
-    prev_hash: str = 0
+    prev_hash: str = "0"
     timestamp: str = datetime.datetime.utcnow().strftime("%H:%M:%S")
     nonce: str = 0
 
@@ -117,7 +117,7 @@ class PyChain:
 
             calculated_hash = block.hash_block()
 
-        print("Wining Hash", calculated_hash)
+        print("Winning Hash", calculated_hash)
         return block
 
     def add_block(self, candidate_block):
@@ -194,7 +194,7 @@ if st.button("Add Block"):
     # and `amount` values
     new_block = Block(
         # data=input_data,
-        record=Record(sender, receiver, amount),
+        record= sender + receiver + amount,
         creator_id=42,
         prev_hash=prev_block_hash
     )
